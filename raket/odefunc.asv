@@ -1,0 +1,3 @@
+function [xbiss, ybiss] = odefunc(massfunc, steerXfunc, t)
+
+xbiss = (-c/massfunc(t)) * sqrt(steerXfunc(t)^2 + steerYfunc)
