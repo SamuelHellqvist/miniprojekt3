@@ -1,3 +1,5 @@
+%function for the mass in the rocket (fuel will decline and so will mass
+
 function [m, mprim] = mass(t)
 
 if 0 <= t && t < 5

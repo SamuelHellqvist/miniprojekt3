@@ -1,5 +1,5 @@
 function [uy] = steering(func1(t));
 km = 2000;
 
-%ux = km * cos(func(t));
+ux = km * cos(func(t));
 uy = km*sin(func1);

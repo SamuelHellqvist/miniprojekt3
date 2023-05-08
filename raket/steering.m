@@ -1,5 +1,10 @@
-function [ux, uy] = steering(fun, t);
-km = 2000;
+%function for x and y velocity
 
-ux = km * cos(fun(t));
-uy = km * sin(fun(t));
+function [ux, uy] = steering(t)
+
+    %the speed will be constant
+    km = 2000;
+    
+    ux = km * cos(t);
+    uy = km * sin(t);
+end

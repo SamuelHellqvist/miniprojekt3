@@ -1,24 +1,29 @@
 %Main program
 
-%laddar in banan
+%loading the track and starting values
 load bana-88.mat
 
-%plottar banan
+%plotting track
 plotTrack(portx, porty, ver, v0, a0);
 hold on
 
+%the rocket will fly for 55 seconds
+n = 55; 
 
-n = 55; %raketen kommer att flyga i 55 sekunder
-
-%start koordinater för raketen
+%start coordinates
 rocketStartx = 90;
 rocketStarty = 0;
 
-for i=1:n
-    [rocketX, rocketY] = steering(@angle, i);
-    h1 = plot(rocketX,rocketY,'or','MarkerSize',5,'MarkerFaceColor','r')
-    pause(1)
-    delete(h1)
-end
+%start velocity for the rocket (engine not running)
+startVx = v0*cosd(a0);
+startVy = v0*sind(a0);
 
-[u, z] = mass(4);
+%starting position and velocity for the rocket
+y0 = [rocketStartx, startVx, rocketStarty, startVy];
+
+%differential equation for steering threw the track
+[t,z] = ode45(@odefunc, [0, 55], y0);
+
+%plotting the rockets way threw the track
+plot(z(:,1),z(:,3));
+hold off
