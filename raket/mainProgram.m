@@ -32,11 +32,16 @@ hold on
 for n = 1:397
     r = rem(n, 20);
     if r == 0 
-      plot(z(n, 1), z(n, 3), 'ob');  
+      plot(z(n, 1), z(n, 3), 'ob');
+      %p = nsidedpoly(3, 'Center', [z(n, 1) ,z(n, 3)], 'Sidelength', 10);
+      
+     
+      %p_rotated=rotate(p,angle(n*0.1385490428)*(180/pi), [z(n, 1) ,z(n, 3)]);
+      %plot(p_rotated);
     end
 end
+hold off
 
-hold on
 %plotting the angle of the engine
 
 

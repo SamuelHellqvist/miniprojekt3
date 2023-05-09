@@ -1,0 +1,6 @@
+function dz = system(t, z)
+
+dz = [z(2)
+      t*z(2)-z(1)^2
+    ];
+end

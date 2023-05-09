@@ -1,0 +1,6 @@
+%%plottar funktion för ex 14.3
+tspan = [0,2];
+ybv = [1; -1];
+n = 100;
+[t,z] = ode45(@system, tspan, ybv, n);
+plot(t, z(:,1));
