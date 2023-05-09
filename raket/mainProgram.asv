@@ -28,16 +28,7 @@ y0 = [rocketStartx, startVx, rocketStarty, startVy];
 plot(z(:,1),z(:,3));
 hold on
 
-%plotting the rockets position in different timestamps
-for n = 1:397
-    r = rem(n, 20);
-    if r == 0 
-      plot(z(n, 1), z(n, 3), 'ob');  
-    end
-end
-
-hold on
-%plotting the angle of the engine
-
+for i = 1:n
+    plot(z(n,1), z(n))
 
 hold off
