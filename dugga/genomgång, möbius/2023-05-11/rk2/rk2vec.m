@@ -3,7 +3,7 @@ function [t, y] = rk2vec(fun, interval, A, n)
 a = interval(1); 
 b = interval(2);
 
-h = (b-a)/2;
+h = (b-a)/n;
 t = linspace(a, b, n+1);
 y(:, 1) = A;
 

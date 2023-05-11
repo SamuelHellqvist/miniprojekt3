@@ -28,6 +28,9 @@ y0 = [rocketStartx, startVx, rocketStarty, startVy];
 plot(z(:,1),z(:,3));
 hold on
 
+
+plot(z(:, 2), z(:, 1));
+
 %plotting the rockets position in different timestamps
 for n = 1:397
     r = rem(n, 20);
