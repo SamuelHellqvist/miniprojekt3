@@ -3,7 +3,7 @@ a = interval(1);
 b = interval(2);
 h = (b-a)/n;
 t = linspace(a, b, n+1);
-%y(1,:) = [A(1), A(2), A(3)]
+
 y(:,1) = A;
 
 for i = 1:n
