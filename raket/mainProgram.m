@@ -7,9 +7,6 @@ load bana-88.mat
 plotTrack(portx, porty, ver, v0, a0);
 hold on
 
-%the rocket will fly for 55 seconds
-n = 55; 
-
 %start coordinates
 rocketStartx = 90;
 rocketStarty = 0;
@@ -26,26 +23,53 @@ y0 = [rocketStartx, startVx, rocketStarty, startVy];
 
 %plotting the rockets way threw the track
 plot(z(:,1),z(:,3));
-hold on
-
-
-plot(z(:, 2), z(:, 1));
 
 %plotting the rockets position in different timestamps
-for n = 1:397
-    r = rem(n, 20);
-    if r == 0 
-      plot(z(n, 1), z(n, 3), 'ob');
-      %p = nsidedpoly(3, 'Center', [z(n, 1) ,z(n, 3)], 'Sidelength', 10);
-      
-     
-      %p_rotated=rotate(p,angle(n*0.1385490428)*(180/pi), [z(n, 1) ,z(n, 3)]);
-      %plot(p_rotated);
-    end
+%for n = 1:397
+%   r = rem(n, 20);
+%    if r == 0 
+%      plot(z(n, 1), z(n, 3), 'ob');
+%    end
+%end
+%hold off
+
+%plot the rockets speed
+vVec = zeros(1, 397);
+for i = 1:397
+    vVec(1, i) = sqrt(z(i, 2)^2+z(i, 4)^2);
 end
-hold off
+
+figure(2);
+tTrans = t';
+plot(tTrans, vVec);
+
+
 
 %plotting the angle of the engine
+figure(3)
+p = nsidedpoly(3, 'Center', [0 ,0], 'SideLength', 1);
+p_zero=rotate(p,90,[0, 0]);
+
+p_start = rotate(p_zero, angle(0)*180/pi, [0, 0]);
+tiledlayout(3,3)
+n = 55;
 
 
-hold off
+nexttile
+plot(p_zero);
+hold on
+[a, b] = direction(0);
+plot(a, b, 'o');
+
+
+for i = 1:55
+    if angle(i) ~= angle(i-1) 
+        p_rotated = rotate(p_start, angle(i) * 180/pi, [0,0]);
+        nexttile
+        plot(p_rotated);
+        hold on
+        [x, y] = direction(i);
+        plot(x, y, 'o');
+        
+    end
+end
