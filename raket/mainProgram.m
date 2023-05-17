@@ -19,23 +19,16 @@ startVy = v0*sind(a0);
 y0 = [rocketStartx, startVx, rocketStarty, startVy];
 
 %differential equation for steering threw the track
-[t,z] = ode45(@odefunc, [0, 55], y0);
+[t,z] = ode45(@odefunc, [0, 46], y0);
 
 %plotting the rockets way threw the track
 plot(z(:,1),z(:,3));
 
-%plotting the rockets position in different timestamps
-%for n = 1:397
-%   r = rem(n, 20);
-%    if r == 0 
-%      plot(z(n, 1), z(n, 3), 'ob');
-%    end
-%end
-%hold off
+
 
 %plot the rockets speed
-vVec = zeros(1, 397);
-for i = 1:397
+vVec = zeros(1, 345);
+for i = 1:345
     vVec(1, i) = sqrt(z(i, 2)^2+z(i, 4)^2);
 end
 
@@ -43,7 +36,7 @@ figure(2);
 tTrans = t';
 plot(tTrans, vVec);
 xlabel('Tid', 'FontSize', 16)
-ylabel('Hastighet', 'FontSize', 16)
+ylabel('Fart', 'FontSize', 16)
 
 
 
