@@ -42,9 +42,8 @@ end
 figure(2);
 tTrans = t';
 plot(tTrans, vVec);
-xlabel('Tid', 'FontSize', 16)
-ylabel('Hastighet', 'FontSize', 16)
-
+xlabel('Tid')
+ylabel('Hastighet')
 
 
 
@@ -62,7 +61,7 @@ nexttile
 plot(p_zero);
 hold on
 [a, b] = direction(0);
-plot(a, b, 'o', Color = 'red', LineWidth=3);
+plot(a, b, 'o');
 
 
 for i = 1:55
@@ -72,7 +71,7 @@ for i = 1:55
         plot(p_rotated);
         hold on
         [x, y] = direction(i);
-        plot(x, y, 'o', Color='red' ,LineWidth=3);
+        plot(x, y, 'o', Color='red' ,li);
         
     end
 end
