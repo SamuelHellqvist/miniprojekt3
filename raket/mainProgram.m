@@ -5,11 +5,13 @@ load bana-88.mat
 
 %plotting track
 plotTrack(portx, porty, ver, v0, a0);
+
 hold on
 
 %start coordinates
 rocketStartx = 90;
 rocketStarty = 0;
+plot(rocketStartx, rocketStarty, 'o', LineWidth=3);
 
 %start velocity for the rocket (engine not running)
 startVx = v0*cosd(a0);
@@ -52,7 +54,7 @@ n = 55;
 
 
 nexttile
-plot(p_zero);
+plot(p_start);
 hold on
 [a, b] = direction(0);
 plot(a, b, 'o', Color = 'red', LineWidth=3);
